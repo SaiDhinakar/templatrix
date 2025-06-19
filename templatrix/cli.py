@@ -1,0 +1,43 @@
+import argparse
+import os
+from .src.fastapi_template import FastapiTemplate
+from rich import print
+import argparse
+
+def main():
+    parser = argparse.ArgumentParser(description="Project1 CLI")
+
+    # Positional argument: framework type (fastapi or flask)
+    parser.add_argument(
+        'framework',
+        choices=['fastapi', 'flask'],
+        help='Choose the web framework to use'
+    )
+
+    # Optional arguments
+    parser.add_argument('--path', type=str, help="Optional project setup path")
+    parser.add_argument('--override', action='store_true', help="Override the existing directory")
+    parser.add_argument('--template', action='store_true', help="Use template")
+    parser.add_argument('--vcs', action='store_true', help="Enable version control")
+
+    args = parser.parse_args()
+
+    # Build kwargs dynamically
+    kwargs = {}
+    if args.path is not None:
+        kwargs['dir'] = args.path  # Changed from 'path' to 'dir' to match FastapiTemplate constructor
+    if args.override:
+        kwargs['override'] = True
+    if args.template:
+        kwargs['template'] = True
+    if args.vcs:
+        kwargs['vcs'] = True
+
+    # Use framework value as needed
+    framework = args.framework
+    
+    if framework == "fastapi":
+        fastapi_template = FastapiTemplate(**kwargs)
+        fastapi_template.generate_template()
+        print(f"[green]✅ {framework} project structure created successfully [/green]")
+    
