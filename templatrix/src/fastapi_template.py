@@ -34,7 +34,7 @@ class FastapiTemplate:
         self.folders = ('db', 'models', 'routes', 'tests', 'utils')
         
         self.dir_path = dir
-        self.tempalte = template
+        self.template = template
         self.override = override
 
         if self.override and os.path.exists(self.dir_path):
@@ -91,7 +91,7 @@ class FastapiTemplate:
     
         
     def generate_template(self):
-        if self.tempalte:
+        if self.template:
             source_dir = Path(__file__).parent.joinpath("templates", "template_fastapi") # Source template directory
             for item in os.listdir(source_dir.resolve()):
                 source = os.path.join(source_dir, item)
