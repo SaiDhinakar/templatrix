@@ -3,10 +3,35 @@ import os
 from .src.fastapi_template import FastapiTemplate
 from .src.flask_template import FlaskTemplate
 from rich import print
-import argparse
+
 
 def main():
-    parser = argparse.ArgumentParser(description="Project1 CLI")
+    """
+    Main CLI entry point for Templatrix.
+    
+    This function parses command-line arguments and generates project templates
+    based on the specified framework and options. It supports generating FastAPI
+    and Flask web application templates with various configuration options.
+    
+    Command-line Interface:
+        templatrix [framework] [options]
+        
+    Arguments:
+        framework: Either 'fastapi' or 'flask', specifies the web framework to use
+        
+    Options:
+        --path PATH     Custom project directory (defaults to current directory)
+        --override      Override existing directory if it exists
+        --template      Use a fully featured template with example code
+        --vcs           Initialize git repository with appropriate .gitignore
+    
+    Examples:
+        templatrix fastapiI
+        templatrix flask --path ./my-flask-app --template
+        templatrix fastapi --vcs
+        templatrix flask --override
+    """
+    parser = argparse.ArgumentParser(description="Templatrix - Web Framework Project Generator")
 
     # Positional argument: framework type (fastapi or flask)
     parser.add_argument(
