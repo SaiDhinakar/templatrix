@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Templatrix</title>
+    <link rel="stylesheet" href="/static/css/index.css">
+</head>
+<body>
+    <header>
+        <h1>Templatrix App</h1>
+    </header>
+    
+    <div class="container">
+        <h2>Login</h2>
+        
+        <div class="credentials-box">
+            <h3>Demo Credentials</h3>
+            <p><strong>Admin:</strong> {{ static_user }} / {{ static_pass }}</p>
+            <p><strong>Sample Users:</strong> johndoe / user123, janedoe / user456</p>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flash-messages">
+            {% for message in messages %}
+              <li class="flash-message error">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        
+        <form method="post">
+            <h3>Sign In</h3>
+            <div>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
