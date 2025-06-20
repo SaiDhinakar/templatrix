@@ -1,7 +1,7 @@
 [project]
 name = "templatrix"
 version = "0.1.0"
-description = "Add your description here"
+description = "Python package for quickly generating structured web application templates for FastAPI and Flask frameworks"
 readme = "README.md"
 authors = [
     { name = "SaiDhinakar", email = "saidhinakars899@gmail.com" }
