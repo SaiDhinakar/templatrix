@@ -1,6 +1,7 @@
 import argparse
 import os
 from .src.fastapi_template import FastapiTemplate
+from .src.flask_template import FlaskTemplate
 from rich import print
 import argparse
 
@@ -39,5 +40,16 @@ def main():
     if framework == "fastapi":
         fastapi_template = FastapiTemplate(**kwargs)
         fastapi_template.generate_template()
-        print(f"[green]✅ {framework} project structure created successfully [/green]")
+        print(f"\n[green]✅ {framework.capitalize()} project structure created successfully[/green]")
+        print("To run the FastAPI app, use one of the following commands:")
+        print("  [bold]uvicorn run:app --reload[/bold]")
+        print("  [bold]fastapi run[/bold]")
+        print("  [bold]python run.py[/bold]")
+    elif framework == "flask":
+        flask_template = FlaskTemplate(**kwargs)
+        flask_template.generate_template()
+        print(f"\n[green]✅ {framework.capitalize()} project structure created successfully[/green]")
+        print("To run the Flask app, use one of the following commands:")
+        print("  [bold]flask run[/bold]")
+        print("  [bold]python run.py[/bold]")
     
