@@ -1,8 +1,8 @@
 # Templatrix
 
 [![PyPI version](https://img.shields.io/pypi/v/templatrix.svg)](https://pypi.org/project/templatrix/)
-[![Python Version](https://img.shields.io/pypi/pyversions/templatrix.svg)](https://pypi.org/project/templatrix/)
-[![License](https://img.shields.io/github/license/SaiDhinakar/templatrix)](https://github.com/SaiDhinakar/templatrix/blob/main/LICENSE)
+
+[![License](https://img.shields.io/github/license/SaiDhinakar/templatrix)](https://github.com/SaiDhinakar/templatrix/blob/master/LICENSE)
 
 A powerful Python package for quickly generating structured web application templates for FastAPI and Flask frameworks.
 
